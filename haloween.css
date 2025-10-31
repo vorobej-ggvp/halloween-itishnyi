@@ -1,4 +1,39 @@
-
-#mainButt:active {
-    transform: translate(-50%, -50%) scale(1.2);
+#mainButt {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    padding: 0%;
+    border-color: transparent;
 }
+#mainButt:active {
+    transform: translate(-50%, -50%) scale(1.2) ;
+}
+
+#numOfClicks {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: gray;
+}
+
+body
+{
+    background-size: cover;
+    background-color : hsla(37 100% 48.8% / 0.81);
+}
+
+#firstUpdate {
+    background-size: cover;
+    visibility: hidden;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
