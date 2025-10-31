@@ -8,6 +8,8 @@
     cursor: pointer;
     padding: 0%;
     border-color: transparent;
+    background-color: transparent;
+
 }
 #mainButt:active {
     transform: translate(-50%, -50%) scale(1.2) ;
@@ -35,5 +37,26 @@ body
     top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border-radius: 2px;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    background-color: rgb(151, 98, 1);
+    border-radius: 12px;
+}
+
+#secondUpdate {
+    background-size: cover;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    background-color: rgb(151, 98, 1);
+    border-radius: 12px;
+    visibility: hidden;
 }
 
