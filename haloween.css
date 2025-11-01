@@ -1,62 +1,77 @@
-#mainButt {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    padding: 0%;
-    border-color: transparent;
-    background-color: transparent;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    margin: 0;
+}
 
+.bg-image {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    padding: 0;
+    margin: 0;
+    visibility: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+button {
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: hsla(37 100% 37% / 0.81);
+    color:hsl(46 67.8% 92.8%);
+    font-size: 15px;
+    padding: 7px;
+}
+
+#mainButt {
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
 }
 #mainButt:active {
-    transform: translate(-50%, -50%) scale(1.2) ;
+    transform: scale(1.2) ;
 }
 
 #numOfClicks {
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    color: gray;
+    position: relative;
+    font-size: 30px;
+    color: rgb(71, 70, 70);
 }
 
-body
-{
-    background-size: cover;
-    background-color : hsla(37 100% 48.8% / 0.81);
+.upgrades {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    gap: 10px;
 }
 
-#firstUpdate {
-    background-size: cover;
+.upgrades button {
+    flex: 0 1 auto;
     visibility: hidden;
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 2px;
+}
+
+/*#first-update {
+    visibility: visible;
     border-color: black;
     border-style: solid;
-    border-width: 2px;
-    background-color: rgb(151, 98, 1);
-    border-radius: 12px;
+    background-color: rgb(172, 141, 85);
 }
 
 #secondUpdate {
-    background-size: cover;
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 2px;
+    visibility: hidden;
     border-color: black;
     border-style: solid;
-    border-width: 2px;
-    background-color: rgb(151, 98, 1);
-    border-radius: 12px;
-    visibility: hidden;
+    background-color: rgb(172, 141, 85);
 }
 
+*/

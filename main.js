@@ -1,45 +1,89 @@
-let mainButt = document.getElementById("mainButt");
-let textClick = document.getElementById("numOfClicks");
-let firstUpdate = document.getElementById("firstUpdate");
-let secondUpdate = document.getElementById("secondUpdate");
+const ghost = document.querySelector('.bg-image');
+const mainButt = document.getElementById("mainButt");
+const textClick = document.getElementById("numOfClicks");
+const firstUpdate = document.getElementById("first-update");
+const secondUpdate = document.getElementById("second-update");
+const thirdUpdate = document.getElementById("third-update");
+const fourthUpdate = document.getElementById("fourth-update");
 
+const SIZE = 300;
+const STEP = 10;
+const INTERVAL = 25;
+const goldForFirst = 5;
+const goldForSecond = 10;
+const goldForThird = 30;
+const goldForFourth = 50;
 let numOfClicks = 0;
-let firstStage = false;
-let secondStage = false;
+let x = 10;
+let y = 10;
+let stepX = STEP;
+let stepY = STEP;
+let animationStarted = false;
+
+const onInterval = () => {
+    x += stepX;
+    y += stepY;
+    ghost.style.left = `${x}px`;
+    ghost.style.top = `${y}px`;
+    if(y > window.innerHeight - SIZE || y <= 0)
+        stepY = -stepY;
+    if(x > window.innerWidth - SIZE || x <= 0)
+        stepX = -stepX;
+}
 
 mainButt.onclick = function() {
     numOfClicks++;
-    textClick.textContent = "Button clicked " + numOfClicks + " times";
+    textClick.textContent = "Got " + numOfClicks + " coins";
     
-    if (numOfClicks === 30) {
-        firstUpdate.style.visibility = "visible";
-    }else if (numOfClicks === 50) {
-        secondUpdate.style.visibility = "visible";
+    switch(numOfClicks) {
+        case goldForFirst:
+            firstUpdate.style.visibility = "visible";    
+            break;
+        case goldForSecond:
+            secondUpdate.style.visibility = "visible";
+            break;
+        case goldForThird:
+            thirdUpdate.style.visibility = "visible";
+            break;
+        case goldForFourth:
+            fourthUpdate.style.visibility = "visible";
+            break;
+        default:
+            break;
     }
-
-    if (firstStage === true) {
-    numOfClicks++;
-    }else if(secondStage === true) {
-    numOfClicks += 2;
-    }
-
-
-
 }
 
 firstUpdate.onclick = function() {
-    if (numOfClicks >= 30) {
-        firstStage = true;
-        numOfClicks = numOfClicks - 30;
-        document.body.style.backgroundImage = "url('img/background.png')";
+    if(numOfClicks >= goldForFirst) {
+        numOfClicks -= goldForFirst;
+        document.title = "Halloween Clicker";
         firstUpdate.style.visibility = "hidden";
-    }}
+    }
+}
 
 secondUpdate.onclick = function() {
-    if (numOfClicks >= 50) {
-        secondStage = true;
-        numOfClicks = numOfClicks - 50;
-        document.body.style.backgroundImage = "url('img/ghostbg.png')";
+    if(numOfClicks >= goldForSecond) {
+        numOfClicks -= goldForSecond;
+        document.body.style.backgroundColor = "hsla(37 100% 48.8% / 0.81)";
         secondUpdate.style.visibility = "hidden";
+    }
+}
+
+thirdUpdate.onclick = function() {
+    if (numOfClicks >= goldForThird) {
+        numOfClicks = numOfClicks - goldForThird;
+        document.body.style.backgroundImage = "url('img/background.png')";
+        thirdUpdate.style.visibility = "hidden";
+    }}
+
+fourthUpdate.onclick = function() {
+    if (numOfClicks >= goldForFourth) {
+        numOfClicks = numOfClicks - goldForFourth;
+        ghost.style.visibility = "visible";
+        if(!animationStarted) {
+            setInterval(onInterval, INTERVAL);
+            animationStarted = true;
+        }
+        fourthUpdate.style.visibility = "hidden";
     }
 }
