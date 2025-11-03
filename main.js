@@ -13,6 +13,10 @@ const goldForFirst = 5;
 const goldForSecond = 10;
 const goldForThird = 30;
 const goldForFourth = 50;
+let wasUpdated1 = false;
+let wasUpdated2 = false;
+let wasUpdated3 = false;
+let wasUpdated4 = false;
 let numOfClicks = 0;
 let x = 10;
 let y = 10;
@@ -25,10 +29,14 @@ const onInterval = () => {
     y += stepY;
     ghost.style.left = `${x}px`;
     ghost.style.top = `${y}px`;
-    if(y > window.innerHeight - SIZE || y <= 0)
+    if(y > window.innerHeight - SIZE || y <= 0) {
         stepY = -stepY;
-    if(x > window.innerWidth - SIZE || x <= 0)
+        numOfClicks++;
+    }
+    if(x > window.innerWidth - SIZE || x <= 0) {
         stepX = -stepX;
+        numOfClicks++;
+    }
 }
 
 mainButt.onclick = function() {
@@ -37,16 +45,20 @@ mainButt.onclick = function() {
     
     switch(numOfClicks) {
         case goldForFirst:
-            firstUpdate.style.visibility = "visible";    
+            if(!wasUpdated1)
+                firstUpdate.style.visibility = "visible";    
             break;
         case goldForSecond:
-            secondUpdate.style.visibility = "visible";
+            if(!wasUpdated2)
+                secondUpdate.style.visibility = "visible";
             break;
         case goldForThird:
-            thirdUpdate.style.visibility = "visible";
+            if(!wasUpdated3)
+                thirdUpdate.style.visibility = "visible";
             break;
         case goldForFourth:
-            fourthUpdate.style.visibility = "visible";
+            if(!wasUpdated4)
+                fourthUpdate.style.visibility = "visible";
             break;
         default:
             break;
@@ -58,6 +70,7 @@ firstUpdate.onclick = function() {
         numOfClicks -= goldForFirst;
         document.title = "Halloween Clicker";
         firstUpdate.style.visibility = "hidden";
+        wasUpdated1 = true;
     }
 }
 
@@ -66,6 +79,7 @@ secondUpdate.onclick = function() {
         numOfClicks -= goldForSecond;
         document.body.style.backgroundColor = "hsla(37 100% 48.8% / 0.81)";
         secondUpdate.style.visibility = "hidden";
+        wasUpdated2 = true;
     }
 }
 
@@ -74,6 +88,7 @@ thirdUpdate.onclick = function() {
         numOfClicks = numOfClicks - goldForThird;
         document.body.style.backgroundImage = "url('img/background.png')";
         thirdUpdate.style.visibility = "hidden";
+        wasUpdated3 = true;
     }}
 
 fourthUpdate.onclick = function() {
@@ -85,5 +100,6 @@ fourthUpdate.onclick = function() {
             animationStarted = true;
         }
         fourthUpdate.style.visibility = "hidden";
+        wasUpdated4 = true;
     }
 }

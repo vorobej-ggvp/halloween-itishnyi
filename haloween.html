@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    
-    <link rel="stylesheet" href="haloween.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="haloween.css" />
     <script src="main.js" defer></script>
-</head>
-<body>
-    <div><img src="./img/ghost.png" alt="ghost"  class="bg-image"></div>
+  </head>
+  <body>
     <div class="container">
-        <button id="mainButt">
-        Click me
-        <!--<img src="img/pumpkin.png" id="mainButt">-->
+      <button id="mainButt">Click me</button>
+      <h2 id="numOfClicks"></h2>
+
+      <div class="upgrades">
+        <button id="first-update">
+          Name for page <br />
+          5 coins
         </button>
-        <h2 id="numOfClicks"></h2>
 
-        <div class="upgrades">
-            <button id="first-update">
-                Name for page <br> 5 coins
-            </button>
-            
-            <button id="second-update">
-                Color for background <br> 10 coins
-            </button>
-    
-            <button id = "third-update">
-                Change background <br> 30 coins
-            </button>
-    
-            <button id="fourth-update">
-                Add spooky ghost <br> 50 coins
-            </button>
-        </div>
+        <button id="second-update">
+          Color for background <br />
+          10 coins
+        </button>
+
+        <button id="third-update">
+          Change background <br />
+          30 coins
+        </button>
+
+        <button id="fourth-update">
+          Add spooky ghost <br />
+          50 coins
+        </button>
+      </div>
     </div>
-
-</body>
+    <div><img src="./img/ghost.png" alt="ghost" class="bg-image" /></div>
+  </body>
 </html>
